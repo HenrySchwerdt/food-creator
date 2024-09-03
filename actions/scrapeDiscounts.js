@@ -145,7 +145,7 @@ function extractProductLidlData() {
         const products = await getItemsFromAldi(url, extractor);
         allProducts.push(...products);
     }
-    void fetch(process.env.REFRESH_PRODUCTS_URL, {
+    fetch(process.env.REFRESH_PRODUCTS_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -153,4 +153,5 @@ function extractProductLidlData() {
         },
         body: JSON.stringify(allProducts),
     });
+    require('fs').writeFileSync('products.json', JSON.stringify(allProducts, null, 2));
 })();
