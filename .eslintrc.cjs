@@ -57,6 +57,6 @@ const config = {
       }
     ]
   },
-  ignorePatterns: ["createMenu.js", "scrapeDiscounts.js", "next.config.js", "prettier.config.js"],
+  ignorePatterns: ["createMenu.js", "scrapeDiscounts.js"],
 }
 module.exports = config;
