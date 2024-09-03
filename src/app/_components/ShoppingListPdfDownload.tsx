@@ -1,3 +1,4 @@
+"use client";
 import dynamic from 'next/dynamic';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
