@@ -143,6 +143,10 @@ function extractProductLidlData() {
             'Authorization': `Bearer ${process.env.REFRESH_PRODUCT_SECRET}`,
         },
         body: JSON.stringify(allProducts),
+    }).then(response => response.json()).then(data => {
+        console.log('Success:', data);
+    }).catch((error) => {
+        console.error('Error:', error);
     });
     require('fs').writeFileSync('products.json', JSON.stringify(allProducts, null, 2));
 })();

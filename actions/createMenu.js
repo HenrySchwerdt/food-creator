@@ -136,7 +136,11 @@ const createMenu = async () => {
                 'Authorization': `Bearer ${process.env.REFRESH_MENU_SECRET}`,
             },
             body: JSON.stringify(menu),
-        });
+        }).then(() => {
+            console.log("Menü erfolgreich erstellt und an den Server gesendet.");
+        }).catch((error) => {
+            console.error("Fehler beim Senden des Menüs an den Server:", error);
+        })
         
     } catch (error) {
         console.error("Fehler beim Erstellen des Menüs:", error);
