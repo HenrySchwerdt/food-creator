@@ -1,0 +1,39 @@
+name: Scrape and Create Menu
+on:
+    workflow_dispatch:
+    # schedule every monday at 10:00
+    schedule:
+        - cron: '0 10 * * 1'
+
+permissions:
+    contents: write
+    id-token: write
+    actions: write
+
+jobs:
+    scrape_and_create_menu:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Setup Node & Npm
+              uses: actions/setup-node@v2
+              with:
+                node-version: '21'
+            - name: Install dependencies
+              run: npm install
+              # in dir ./actions/
+              working-directory: ./actions/
+            - name: Scrape Discounts
+              run: node scrapeDiscounts.js
+              working-directory: ./actions/
+              env:
+                REFRESH_PRODUCTS_TOKEN: ${{ secrets.REFRESH_PRODUCTS_TOKEN }}
+                REFRESH_PRODUCTS_URL: ${{ secrets.REFRESH_PRODUCTS_URL }}
+            - name: Create Menu
+              run: node createMenu.js
+              working-directory: ./actions/
+              env:
+                WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
+                REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
+                REFRESH_MENU_TOKEN: ${{ secrets.REFRESH_MENU_TOKEN }}
