@@ -1,9 +1,7 @@
-"use server";
-
 import { getAllWines } from "~/server/repository/productRepository";
 import { ProductCard } from "../_components/ProductCard";
-export const dynamic = "force-dynamic";
-export default async function Discounts() {
+
+export default async function DiscountPage() {
     const products = await getAllWines();
     return (
       <main className="flex min-h-screen flex-col items-center justify-center">
@@ -17,3 +15,4 @@ export default async function Discounts() {
       </main>
     );
   }
+  export const dynamic = "force-dynamic";
