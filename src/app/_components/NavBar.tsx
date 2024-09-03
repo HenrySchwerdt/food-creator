@@ -1,13 +1,13 @@
 export function NavBar() {
     return <header className="flex items-center justify-between h-16 px-6 bg-background border-b shadow-md">
   <nav className="flex items-center gap-8 text-base font-semibold">
-    <a className="text-muted-foreground hover:text-foreground transition-colors" href="#">
+    <a className="text-muted-foreground hover:text-foreground transition-colors" href="/">
       Menu
     </a>
-    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+    <a href="/discounts" className="text-muted-foreground hover:text-foreground transition-colors">
       Discounts
     </a>
-    <a className="text-muted-foreground hover:text-foreground transition-colors" href="#">
+    <a className="text-muted-foreground hover:text-foreground transition-colors" href="/list">
       Einkaufsliste
     </a>
   </nav>

@@ -44,7 +44,7 @@ export type WeekMenu = {
     id: number,
     mon: MenuDay,
     tue: MenuDay,
-    wed: MenuDay,
+    wen: MenuDay,
     thu: MenuDay,
     fri: MenuDay,
     sat: MenuDay,

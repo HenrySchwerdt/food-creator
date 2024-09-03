@@ -8,7 +8,7 @@ export const insertMenu = async (weekMenu: WeekMenu): Promise<void> => {
     await db.insert(menu).values({
         mon: weekMenu.mon,
         tue: weekMenu.tue,
-        wed: weekMenu.wed,
+        wen: weekMenu.wen,
         thu: weekMenu.thu,
         fri: weekMenu.fri,
         sat: weekMenu.sat,

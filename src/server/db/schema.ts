@@ -39,7 +39,7 @@ export const menu = createTable(
     id: serial("id").primaryKey(),
     mon: json("mon").$type<MenuDay>().notNull(),
     tue: json("tue").$type<MenuDay>().notNull(),
-    wed: json("wed").$type<MenuDay>().notNull(),
+    wen: json("wen").$type<MenuDay>().notNull(),
     thu: json("thu").$type<MenuDay>().notNull(),
     fri: json("fri").$type<MenuDay>().notNull(),
     sat: json("sat").$type<MenuDay>().notNull(),
