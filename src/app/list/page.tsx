@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 export default async function ListPage() {
   const menuWeek = (await getAllWeekMenus())[0];
   return (
-    <main className="flex min-h-screen flex-col py-3 px-10">
+    <main className="flex min-h-screen flex-col py-3 px-2 bg-gray-200">
       <ShoppingList  list={menuWeek!.list}/> 
     </main>
   );

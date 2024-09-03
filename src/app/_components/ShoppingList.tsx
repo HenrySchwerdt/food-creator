@@ -18,42 +18,47 @@ interface ShoppingListProps {
 }
 export function ShoppingList({ list }: ShoppingListProps) {
     return (
-        <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <div className="text-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-700">Einkaufsliste</h2>
-                <p className="text-sm text-gray-500">Vielen Dank für Ihren Einkauf!</p>
-            </div>
-
-            <div className="border-t border-gray-300 py-4">
-                {list.items.map((item, index) => (
-                    <div
-                        key={index}
-                        className="flex justify-between items-center py-2 border-b border-gray-200"
-                    >
-                        <div>
-                            <p className="text-lg font-semibold text-gray-800">
-                                {item.name}
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                {item.quantity} - {item.origin}
-                            </p>
-                        </div>
-                        <p className="text-lg font-bold text-gray-800">
-                            {item.price.toFixed(2)} €
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <div className="border-t border-gray-300 mt-4 pt-4">
-                <div className="flex justify-between items-center">
-                    <p className="text-xl font-bold text-gray-800">Gesamt:</p>
-                    <p className="text-xl font-bold text-gray-800">{list.total.toFixed(2)} €</p>
-                </div>
-            </div>
-
-            {/* PDF download link */}
-            <ShoppingListPDFDownload list={list} />
+        <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center">
+          <h2 className="text-lg font-bold">Food-Creator</h2>
         </div>
-    );
+        <div className="text-sm text-muted-foreground">
+          <p>{new Date().toLocaleDateString("de-DE")}</p>
+        </div>
+      </div>
+      <div className="border-t border-muted pt-4 mb-4">
+        <div className="grid grid-cols-4 gap-2 font-medium text-sm pb-2">
+          <div>Item</div>
+          <div className="text-right">Menge</div>
+          <div className="text-right">Preis</div>
+          <div className="text-right">Laden</div>
+        </div>
+        <div className="space-y-2">
+            {
+                list.items.map((item, index) => (
+                    <div key={index} className="grid grid-cols-4 gap-2 text-sm">
+                        <div>{item.name}</div>
+                        <div className="text-right">{item.quantity}</div>
+                        <div className="text-right">€ {item.price.toFixed(2)}</div>
+                        <div className="text-right">{item.origin}</div>
+                    </div>
+                ))
+            }
+        </div>
+      </div>
+      <div className="border-t border-muted pt-4">
+        <div className="grid grid-cols-2 gap-2 font-medium text-sm">
+        </div>
+        <div className="grid grid-cols-2 gap-2 font-medium text-sm">
+        </div>
+        <div className="grid grid-cols-2 gap-2 font-medium text-lg">
+          <div>Summe</div>
+          <div className="text-right">€ {list.total}</div>
+        </div>
+      </div>
+      <div className="mt-4 text-center text-muted-foreground text-sm">Vielen Dank!</div>
+      <ShoppingListPDFDownload list={list} />
+    </div>
+    )
 }
