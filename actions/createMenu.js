@@ -114,6 +114,7 @@ const getMenuFromOpenAI = async (products) => {
                     "Zuletzt erstelle eine Einkaufsliste mit allen Zutaten und der geforderten Menge. Achte darauf das ein Gericht immer für zwei Personen reichen soll." +
                     "Sollten keine guten Beilagen gefunden werden kann immer Reis für 0,99 Euro oder Nudeln für 1,29 Euro pro Pakcung hinzugefügt werden. Achte darauf das bei dem Abendessen alle Fleisch oder Fischbeilagen aufgebruacht werden, wenn sie weiniger als 400 Gramm beinhalten." +
                     "Sollte die Gramm zahl nicht spezifiziert sein gehe davon aus, dass es aufgebraucht wird. Bitte achte auf eine gesunde Ernährung mit viel Protein und Gemüse." +
+                    "Bitte kein Obst in den Gerichten verwenden und Mittags auch normale und warme Mahlzeiten keine Snacks." +
                     "Folgende Küchenwerkzeuge sind vorhanden: 3 Töpfe, 1 Pfanne, 1 Schneidebrett, 1 Messer, 1 Schüssel, 1 Sieb, 1 Schneebesen, 1 Pfannenwender, 1 Kochlöffel, 1 Schneidemesser, 1 Schneidebrett, 1 Schüssel, 1 Sieb, 1 Schneebesen, 1 Pfannenwender, 1 Kochlöffel, 1 Ofen, 1 Heißluftfritöse, 1 Mikrowelle, 1 Wasserkocher. Bitte nutze diese Ausstattung bei der Wahl der Rezepte und suche keine Rezepte aus bei denen man Sachen braucht, wie z.b. einen Smoothie weil es keinen Mixer gibt."
                 },
             { role: "user", content: `Hier sind die verfügbaren Produkte: ${JSON.stringify(products)}` },
