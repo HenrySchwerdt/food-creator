@@ -2,7 +2,7 @@
 
 import { getAllWines } from "~/server/repository/productRepository";
 import { ProductCard } from "../_components/ProductCard";
-
+export const dynamic = "force-dynamic";
 export default async function Discounts() {
     const products = await getAllWines();
     return (

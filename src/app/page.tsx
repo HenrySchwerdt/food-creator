@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllWeekMenus } from "~/server/repository/menuRepository";
 import { DayMenu } from "./_components/DayMenu";
-
+export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const menuWeek = (await getAllWeekMenus())[0];
   return (
