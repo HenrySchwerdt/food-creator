@@ -1,13 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-require-imports */
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 const puppeteer = require('puppeteer');
 
 const urls = [
@@ -145,13 +135,13 @@ function extractProductLidlData() {
         const products = await getItemsFromAldi(url, extractor);
         allProducts.push(...products);
     }
-    fetch(process.env.REFRESH_PRODUCTS_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.REFRESH_PRODUCTS_TOKEN}`,
-        },
-        body: JSON.stringify(allProducts),
-    });
+    // fetch(process.env.REFRESH_PRODUCTS_URL, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${process.env.REFRESH_PRODUCTS_TOKEN}`,
+    //     },
+    //     body: JSON.stringify(allProducts),
+    // });
     require('fs').writeFileSync('products.json', JSON.stringify(allProducts, null, 2));
 })();

@@ -1,14 +1,4 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-require-imports */
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-floating-promises */
-const OpenAI = require("openai-api");
+const OpenAI = require("openai");
 const { zodResponseFormat } = require("openai/helpers/zod");
 const { z } = require("zod");
 
@@ -100,19 +90,38 @@ const Menu = z.object({
             steps: z.array(z.string())
         }),
     }),
-    list: z.array(z.object({
-        name: z.string(),
-        origin: z.string(),
-    }))
+    list: z.object({
+        total: z.string(),
+        items: z.array(z.object({
+            name: z.string(),
+            price: z.string(),
+            quantity: z.string(),
+            origin: z.string(),
+        }))
+    })
 });
 
-const completion = await openai.beta.chat.completions.parse({
-  model: "gpt-4o-2024-08-06",
-  messages: [
-    { role: "system", content: "Extract the event information." },
-    { role: "user", content: "Alice and Bob are going to a science fair on Friday." },
-  ],
-  response_format: zodResponseFormat(Menu, "menu"),
-});
 
-const menu = completion.choices[0].message.parsed;
+const getMenuFromOpenAI = async (products) => {
+    const response = await openai.beta.chat.completions.parse({
+        model: "gpt-4o-mini",
+        messages: [
+            { role: "system", content: "Erstelle ein Menü für eine Woche mit italienischen und asiatischen Gerichten. Das gesamte Budget darf 30 Euro nicht überschreiten. Schreibe auch die Schritte zur Erstellung des Gerichts für das jeweilige Menü und die benötigten Zutaten auf. Achte dabei darauf das der Zutatname genau der aus dem 'name' Feld in dem JSON des Nutzers drin steht. Zuletzt erstelle eine Einkaufsliste mit allen Zutaten und der geforderten Menge. Achte darauf das ein Gericht immer für zwei Personen reichen soll." },
+            { role: "user", content: `Hier sind die verfügbaren Produkte: ${JSON.stringify(products)}` },
+        ],
+        response_format: zodResponseFormat(Menu, "menu"),
+    });
+
+    return response.choices[0].message.parsed;
+};
+
+const createMenu = async () => {
+    try {
+        const menu = await getMenuFromOpenAI(products);
+        console.log("Erstelltes Menü:", menu);
+    } catch (error) {
+        console.error("Fehler beim Erstellen des Menüs:", error);
+    }
+};
+
+createMenu();
