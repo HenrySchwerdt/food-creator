@@ -29,7 +29,7 @@ jobs:
               working-directory: ./actions/
               env:
                 REFRESH_PRODUCT_SECRET: ${{ secrets.REFRESH_PRODUCT_SECRET }}
-                REFRESH_PRODUCTS_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
+                REFRESH_PRODUCT_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
             - name: Create Menu
               run: node createMenu.js
               working-directory: ./actions/
