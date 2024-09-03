@@ -109,7 +109,7 @@ const getMenuFromOpenAI = async (products) => {
         model: "gpt-4o-mini",
         messages: [
             { role: "system", content: "Erstelle ein Menü für eine Woche mit italienischen und asiatischen Gerichten."+
-                    "Das gesamte Budget darf" + weeklyCost + "Euro nicht überschreiten. Schreibe auch die Schritte zur Erstellung des "+
+                    "Das gesamte Budget sollte" + weeklyCost + "Euro nicht überschreiten. Schreibe auch die Schritte zur Erstellung des "+
                     "Gerichts für das jeweilige Menü und die benötigten Zutaten auf. Achte dabei darauf das der Zutatname genau der aus dem 'name' Feld in dem JSON des Nutzers drin steht." +
                     "Zuletzt erstelle eine Einkaufsliste mit allen Zutaten und der geforderten Menge. Achte darauf das ein Gericht immer für zwei Personen reichen soll." +
                     "Sollten keine guten Beilagen gefunden werden kann immer Reis für 0,99 Euro oder Nudeln für 1,29 Euro pro Pakcung hinzugefügt werden. Achte darauf das bei dem Abendessen alle Fleisch oder Fischbeilagen aufgebruacht werden, wenn sie weiniger als 400 Gramm beinhalten." +
