@@ -135,11 +135,12 @@ function extractProductLidlData() {
         const products = await getItemsFromAldi(url, extractor);
         allProducts.push(...products);
     }
-    fetch(process.env.REFRESH_PRODUCTS_URL, {
+    console.log("Url: ", process.env.REFRESH_PRODUCT_URL)
+    fetch(process.env.REFRESH_PRODUCT_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.REFRESH_PRODUCTS_TOKEN}`,
+            'Authorization': `Bearer ${process.env.REFRESH_PRODUCT_SECRET}`,
         },
         body: JSON.stringify(allProducts),
     });

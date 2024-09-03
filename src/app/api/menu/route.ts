@@ -4,7 +4,7 @@ import { type WeekMenu } from "~/server/domain/types";
 import { insertMenu, removeAllWeekMenus } from "~/server/repository/menuRepository";
 
 const POST = async (req: NextRequest) => {
-    if (req.headers.get('Authorization') !== `Bearer ${env.REFRESH_MENU_TOKEN}`) {
+    if (req.headers.get('Authorization') !== `Bearer ${env.REFRESH_MENU_SECRET}`) {
         return new Response("Unauthorized", { status: 401 });
     }
     try {

@@ -28,12 +28,12 @@ jobs:
               run: node scrapeDiscounts.js
               working-directory: ./actions/
               env:
-                REFRESH_PRODUCTS_TOKEN: ${{ secrets.REFRESH_PRODUCTS_TOKEN }}
-                REFRESH_PRODUCTS_URL: ${{ secrets.REFRESH_PRODUCTS_URL }}
+                REFRESH_PRODUCT_SECRET: ${{ secrets.REFRESH_PRODUCT_SECRET }}
+                REFRESH_PRODUCTS_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
             - name: Create Menu
               run: node createMenu.js
               working-directory: ./actions/
               env:
                 WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
                 REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
-                REFRESH_MENU_TOKEN: ${{ secrets.REFRESH_MENU_TOKEN }}
+                REFRESH_MENU_SECRET: ${{ secrets.REFRESH_MENU_SECRET }}
