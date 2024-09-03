@@ -128,7 +128,7 @@ const createMenu = async () => {
     try {
         const menu = await getMenuFromOpenAI(products);
         console.log("Erstelltes Menü:", JSON.stringify(menu, null, 2));
-        fetch(process.env.REFRESH_PRODUCTS_URL, {
+        fetch(process.env.REFRESH_MENU_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
