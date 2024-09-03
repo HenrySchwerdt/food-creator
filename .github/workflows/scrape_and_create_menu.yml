@@ -37,3 +37,4 @@ jobs:
                 WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
                 REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
                 REFRESH_MENU_SECRET: ${{ secrets.REFRESH_MENU_SECRET }}
+                OPENAI_API_KEY: ${{ secrets.OPEN_AI_SECRET_KEY }}
