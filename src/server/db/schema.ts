@@ -18,19 +18,18 @@ import {
  */
 export const createTable = pgTableCreator((name) => `food-creator_${name}`);
 
-export const posts = createTable(
-  "post",
+export const products = createTable(
+  "products",
   {
     id: serial("id").primaryKey(),
+    img: varchar("img", { length: 512 }),
     name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
-    ),
-  },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+    description: varchar("description", { length: 512 }),
+    price: varchar("price", { length: 256 }),
+    originalPrice: varchar("original_price", { length: 256 }), 
+    discount: varchar("discount", { length: 256 }),
+    packaging: varchar("packaging", { length: 256 }),
+    availability: varchar("availability", { length: 256 }),
+    dataOrigin: varchar("data_origin", { length: 256 }),
+  }
 );

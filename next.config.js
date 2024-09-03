@@ -5,6 +5,15 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    images: {
+        remotePatterns:[{
+            hostname: 'cdn.aldi-sued.de',
+        },
+        {
+            hostname: 'imgproxy-retcat.assets.schwarz',
+        }],
+    },
+};
 
 export default config;
