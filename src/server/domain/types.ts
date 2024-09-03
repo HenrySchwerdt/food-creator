@@ -11,3 +11,43 @@ export type Product = {
     availability: string | null,
     dataOrigin: string | null,
 }
+
+export type Menu = {
+    [key: string]: string | string[] | null;
+    name: string,
+    ingredients: string[],
+    steps: string[],
+}
+
+export type MenuDay = {
+    [key: string]: Menu | null;
+    lunch: Menu,
+    dinner: Menu,
+}
+
+export type ShoppingListItem = {
+    [key: string]: number | string | null;
+    name: string,
+    price: number,
+    quantity: string,
+    origin: string,
+}
+
+export type ShoppingList = {
+    [key: string]: number | ShoppingListItem[] | null;
+    total: number,
+    items: ShoppingListItem[],
+}
+
+export type WeekMenu = {
+    [key: string]: MenuDay | ShoppingList | null | number;
+    id: number,
+    mon: MenuDay,
+    tue: MenuDay,
+    wed: MenuDay,
+    thu: MenuDay,
+    fri: MenuDay,
+    sat: MenuDay,
+    sun: MenuDay,
+    list: ShoppingList,
+}

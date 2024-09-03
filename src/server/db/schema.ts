@@ -4,11 +4,13 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  json,
   pgTableCreator,
   serial,
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
+import { MenuDay, ShoppingList } from "../domain/types";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -33,3 +35,18 @@ export const products = createTable(
     dataOrigin: varchar("data_origin", { length: 256 }),
   }
 );
+
+export const menu = createTable(
+  "menu",
+  {
+    id: serial("id").primaryKey(),
+    mon: json("mon").$type<MenuDay>().notNull(),
+    tue: json("tue").$type<MenuDay>().notNull(),
+    wed: json("wed").$type<MenuDay>().notNull(),
+    thu: json("thu").$type<MenuDay>().notNull(),
+    fri: json("fri").$type<MenuDay>().notNull(),
+    sat: json("sat").$type<MenuDay>().notNull(),
+    sun: json("sun").$type<MenuDay>().notNull(),
+    list: json("list").$type<ShoppingList>().notNull(),
+  }
+)

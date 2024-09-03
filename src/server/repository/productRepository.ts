@@ -18,6 +18,11 @@ export const insertWine = async (product: Product): Promise<void> => {
     }).execute();
 }
 
+export const removeAllProducts = async (): Promise<void> => {
+    // eslint-disable-next-line drizzle/enforce-delete-with-where
+    await db.delete(products).execute();
+}
+
 export const getAllWines = async (): Promise<Product[]> => {
     const product = await db.query.products.findMany()
     return product;
