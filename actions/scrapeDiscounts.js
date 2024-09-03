@@ -143,8 +143,8 @@ function extractProductLidlData() {
             'Authorization': `Bearer ${process.env.REFRESH_PRODUCT_SECRET}`,
         },
         body: JSON.stringify(allProducts),
-    }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
+    }).then((response) => {
+        console.log('Success:', response);
     }).catch((error) => {
         console.error('Error:', error);
     });
