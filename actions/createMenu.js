@@ -118,6 +118,14 @@ const getMenuFromOpenAI = async (products) => {
 const createMenu = async () => {
     try {
         const menu = await getMenuFromOpenAI(products);
+        fetch(process.env.REFRESH_PRODUCTS_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${process.env.REFRESH_MENU_TOKEN}`,
+            },
+            body: JSON.stringify(menu),
+        });
         console.log("Erstelltes Menü:", menu);
     } catch (error) {
         console.error("Fehler beim Erstellen des Menüs:", error);
