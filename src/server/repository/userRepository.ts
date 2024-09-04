@@ -24,3 +24,10 @@ export const getUser = async (id: string): Promise<User | undefined> => {
     })
     return identifiedUser;
 }
+
+export const getUserByEmail = async (email: string): Promise<User | undefined> => {
+    const identifiedUser : User | undefined = await db.query.user.findFirst({
+        where: (item, { eq }) => eq(item.email, email)
+    })
+    return identifiedUser;
+}
