@@ -2,12 +2,16 @@
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
 import {
+  integer,
   json,
   pgTableCreator,
+  real,
   serial,
+  uuid,
   varchar,
 } from "drizzle-orm/pg-core";
 import { type MenuDay, type ShoppingList } from "../domain/types";
+import { number } from "zod";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -37,6 +41,7 @@ export const menu = createTable(
   "menu",
   {
     id: serial("id").primaryKey(),
+    userId: uuid("user_id"),
     mon: json("mon").$type<MenuDay>().notNull(),
     tue: json("tue").$type<MenuDay>().notNull(),
     wen: json("wen").$type<MenuDay>().notNull(),
@@ -45,5 +50,23 @@ export const menu = createTable(
     sat: json("sat").$type<MenuDay>().notNull(),
     sun: json("sun").$type<MenuDay>().notNull(),
     list: json("list").$type<ShoppingList>().notNull(),
+  }
+)
+
+export const user = createTable(
+  "user",
+  {
+    id: uuid("id").primaryKey(),
+    name: varchar("name", { length: 256 }).notNull(),
+    email: varchar("email", { length: 256 }).notNull(),
+    hash: varchar("hash", { length: 256 }).notNull(),
+    budget: real("budget"),
+    favoriteMeals: json("favorite_meals").$type<string[]>(),
+    kitchenEquipment: json("kitchen_equipment").$type<string[]>(),
+    dietaryPreferences: json("dietary_preferences").$type<string[]>(),
+    allergies: json("allergies").$type<string[]>(),
+    unlikeIngredients: json("unlike_ingredients").$type<string[]>(),
+    likedIngredients: json("liked_ingredients").$type<string[]>(),
+    people: integer("people"),
   }
 )

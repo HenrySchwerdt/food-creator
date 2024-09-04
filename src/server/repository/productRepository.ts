@@ -4,7 +4,7 @@ import { type Product } from '../domain/types';
 import { products } from '../db/schema';
 
 
-export const insertWine = async (product: Product): Promise<void> => {
+export const insertProduct = async (product: Product): Promise<void> => {
     await db.insert(products).values({
         img: product.img,
         name: product.name,
@@ -23,7 +23,7 @@ export const removeAllProducts = async (): Promise<void> => {
     await db.delete(products).execute();
 }
 
-export const getAllWines = async (): Promise<Product[]> => {
+export const getAllProducts = async (): Promise<Product[]> => {
     const product = await db.query.products.findMany()
     return product;
 }

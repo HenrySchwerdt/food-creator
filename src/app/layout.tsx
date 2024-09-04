@@ -1,23 +1,38 @@
-import "~/styles/globals.css";
+// This is the root layout component for your Next.js app.
+// Learn more: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
+import { DM_Sans } from 'next/font/google'
+import { Space_Mono } from 'next/font/google'
+import { cn } from '~/lib/utils'
+import '../styles/globals.css'
+import React, { type ReactNode } from 'react';
 
-import { type Metadata } from "next";
-import { NavBar } from "./_components/NavBar";
+const fontHeading = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+})
 
-export const metadata: Metadata = {
-  title: "Food Creator",
-  description: "Food Creator",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-};
+const fontBody = Space_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-body',
+  weight: '400'
+})
 
-export default async function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+
+
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de">
-      <body>
-        <NavBar />
+    <html lang="en">
+      <body 
+        className={cn(
+          'antialiased',
+          fontHeading.variable,
+          fontBody.variable
+        )}
+      >
         {children}
-        </body>
+      </body>
     </html>
-  );
-} 
+  )
+}

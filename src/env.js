@@ -13,6 +13,8 @@ export const env = createEnv({
       .default("development"),
     REFRESH_MENU_SECRET: z.string(),
     REFRESH_PRODUCT_SECRET: z.string(),
+    USERNAME: z.string(),
+    PASSWORD: z.string(),
   },
 
   /**
@@ -33,6 +35,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     REFRESH_MENU_SECRET: process.env.REFRESH_MENU_SECRET,
     REFRESH_PRODUCT_SECRET: process.env.REFRESH_PRODUCT_SECRET,
+    USERNAME: process.env.USERNAME,
+    PASSWORD: process.env.PASSWORD,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

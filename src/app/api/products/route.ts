@@ -1,7 +1,7 @@
 import { type NextRequest } from "next/server";
 import { env } from "~/env";
 import { type Product } from "~/server/domain/types";
-import { insertWine, removeAllProducts } from "~/server/repository/productRepository";
+import { insertProduct, removeAllProducts } from "~/server/repository/productRepository";
 
 
 
@@ -13,7 +13,7 @@ const POST = async (req: NextRequest) => {
         await removeAllProducts();
         const body = await req.json() as Product[];
         for (const product of body) {
-            await insertWine(product);
+            await insertProduct(product);
         }
         return new Response("Records updated", { status: 200 });
     } catch (error) {

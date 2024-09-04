@@ -51,3 +51,19 @@ export type WeekMenu = {
     sun: MenuDay,
     list: ShoppingList,
 }
+
+export type User = {
+    [key: string]: string | number | null | string[];
+    id: string,
+    name: string,
+    email: string,
+    hash: string,
+    budget: number | null,
+    favoriteMeals: string[] | null,
+    kitchenEquipment: string[] | null,
+    dietaryPreferences: string[] | null,
+    allergies: string[] | null,
+    unlikeIngredients: string[] | null,
+    likedIngredients: string[] | null,
+    people: number | null,
+}
