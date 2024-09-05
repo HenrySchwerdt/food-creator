@@ -7,8 +7,16 @@ const authOptions = {
     session: {
         strategy: 'jwt',
     },
-    pages: {
-        signIn: '/auth/signin',
+    // pages: {
+    //     signIn: '/auth/signin',
+    // },
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            return token;
+        },
     },
     providers: [
         CredentialsProvider({
@@ -25,9 +33,9 @@ const authOptions = {
                 if (credentials.username === user?.email && compareSync(credentials.password, user.hash)) {
                     return {
                         id: user.id,
-                        name: user.email,
+                        name: user.id,
                         email: user.email
-                    };
+                    } as User;
                 }
                 return null;
             }
