@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { type JSX, type SVGProps } from "react";
 import { Separator } from "../ui/separator";
-import { SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export function Header() {
   return (
@@ -30,21 +30,12 @@ export function Header() {
           >
             Benefits
           </Link>
-          <UserButton />
-          <Link
-            href="/dashboard"
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            Dashboard
-          </Link>
-          <SignedIn>
-            <SignOutButton  />
-          </SignedIn>
           <SignedOut>
-            <SignInButton  />
-            <SignUpButton />
+            <SignInButton />
           </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </nav>
       </header>
       <Separator />

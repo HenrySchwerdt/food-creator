@@ -18,18 +18,12 @@ import { NavUser } from "./nav-user";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarItem,
   SidebarLabel,
 } from "./ui/sidebar";
 import React from "react";
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Menu",
@@ -65,23 +59,6 @@ const data = {
       icon: Send,
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
 };
 
 export function AppSidebar() {
@@ -102,9 +79,6 @@ export function AppSidebar() {
           <NavSecondary items={data.navSecondary} />
         </SidebarItem>
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
     </Sidebar>
   );
 }

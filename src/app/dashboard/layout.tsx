@@ -1,3 +1,4 @@
+import { UserButton } from "@clerk/nextjs";
 import { cookies } from "next/headers";
 import { type ReactNode } from "react";
 import { AppSidebar } from "~/components/app-sidebar";
@@ -11,7 +12,11 @@ export default function Layout({ children }: { children: ReactNode }) {
       <AppSidebar />
       <main className="flex flex-1 flex-col p-2 transition-all duration-300 ease-in-out">
         <div className="h-full rounded-md border-2 border-dashed p-2">
-          <SidebarTrigger />
+            <div className="w-full flex flex-row justify-between">
+                <SidebarTrigger />
+                <UserButton />
+            </div>
+          
           {children}
         </div>
       </main>
