@@ -6,17 +6,16 @@ import { Hero } from "~/components/feature-landing/hero";
 import { SignUp } from "~/components/feature-landing/sign-up";
 export const dynamic = "force-dynamic";
 export default async function HomePage() {
-
   return (
-     <div className="flex flex-col min-h-[100dvh]">
-        <Header />
-        <main className="flex-1">
-          <Hero />
-          <Features />
-          <Benefits />
-          <SignUp />
-        </main>
-        <Footer />
-     </div>
+    <div className="flex min-h-[100dvh] flex-col">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <Features />
+        <Benefits />
+        <SignUp />
+      </main>
+      <Footer />
+    </div>
   );
 }

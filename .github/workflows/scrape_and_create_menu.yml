@@ -1,40 +1,40 @@
 name: Scrape and Create Menu
 on:
-    workflow_dispatch:
-    # schedule every monday at 10:00
-    schedule:
-        - cron: '0 10 * * 1'
+  workflow_dispatch:
+  # schedule every monday at 10:00
+  schedule:
+    - cron: "0 10 * * 1"
 
 permissions:
-    contents: write
-    id-token: write
-    actions: write
+  contents: write
+  id-token: write
+  actions: write
 
 jobs:
-    scrape_and_create_menu:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Setup Node & Npm
-              uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-            - name: Install dependencies
-              run: npm install
-              # in dir ./actions/
-              working-directory: ./actions/
-            - name: Scrape Discounts
-              run: node scrapeDiscounts.js
-              working-directory: ./actions/
-              env:
-                REFRESH_PRODUCT_SECRET: ${{ secrets.REFRESH_PRODUCT_SECRET }}
-                REFRESH_PRODUCT_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
-            - name: Create Menu
-              run: node createMenu.js
-              working-directory: ./actions/
-              env:
-                WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
-                REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
-                REFRESH_MENU_SECRET: ${{ secrets.REFRESH_MENU_SECRET }}
-                OPENAI_API_KEY: ${{ secrets.OPEN_AI_SECRET_KEY }}
+  scrape_and_create_menu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node & Npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm install
+        # in dir ./actions/
+        working-directory: ./actions/
+      - name: Scrape Discounts
+        run: node scrapeDiscounts.js
+        working-directory: ./actions/
+        env:
+          REFRESH_PRODUCT_SECRET: ${{ secrets.REFRESH_PRODUCT_SECRET }}
+          REFRESH_PRODUCT_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
+      - name: Create Menu
+        run: node createMenu.js
+        working-directory: ./actions/
+        env:
+          WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
+          REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
+          REFRESH_MENU_SECRET: ${{ secrets.REFRESH_MENU_SECRET }}
+          OPENAI_API_KEY: ${{ secrets.OPEN_AI_SECRET_KEY }}

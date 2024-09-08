@@ -33,15 +33,20 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background font-body text-foreground;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 
   button {
-    @apply bg-primary text-primary-foreground rounded-md;
+    @apply rounded-md bg-primary text-primary-foreground;
   }
 
   .btn-accent {

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Percent,
@@ -10,11 +10,11 @@ import {
   Utensils,
   Send,
   Settings2,
-} from "lucide-react"
+} from "lucide-react";
 
-import { NavMain } from "./nav-main"
-import { NavSecondary } from "./nav-secondary"
-import { NavUser } from "./nav-user"
+import { NavMain } from "./nav-main";
+import { NavSecondary } from "./nav-secondary";
+import { NavUser } from "./nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -22,8 +22,8 @@ import {
   SidebarHeader,
   SidebarItem,
   SidebarLabel,
-} from "./ui/sidebar"
-import React from "react"
+} from "./ui/sidebar";
+import React from "react";
 const data = {
   user: {
     name: "shadcn",
@@ -34,7 +34,7 @@ const data = {
     {
       title: "Menu",
       url: "/dashboard/menu",
-      icon: Utensils
+      icon: Utensils,
     },
     {
       title: "Einkaufsliste",
@@ -82,14 +82,14 @@ const data = {
       icon: Map,
     },
   ],
-}
+};
 
 export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
         <div className="line-clamp-1 flex-1 pr-2 font-medium">
-           FoodCreatorAI
+          FoodCreatorAI
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -106,5 +106,5 @@ export function AppSidebar() {
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

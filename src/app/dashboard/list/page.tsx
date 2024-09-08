@@ -4,9 +4,5 @@ export const dynamic = "force-dynamic";
 
 export default async function ListPage() {
   const menuWeek = (await getAllWeekMenus())[0];
-  return (
-
-      <ShoppingList  list={menuWeek!.list}/> 
-
-  );
+  return <ShoppingList list={menuWeek!.list} />;
 }
