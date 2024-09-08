@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 36 39% 88%;
-    --foreground: 36 45% 15%;
-    --primary: 36 45% 70%;
-    --primary-foreground: 36 45% 11%;
-    --secondary: 40 35% 77%;
-    --secondary-foreground: 36 45% 25%;
-    --accent: 36 64% 57%;
-    --accent-foreground: 36 72% 17%;
-    --destructive: 0 84% 37%;
-    --destructive-foreground: 0 0% 98%;
-    --muted: 36 33% 75%;
-    --muted-foreground: 36 45% 25%;
-    --card: 36 46% 82%;
-    --card-foreground: 36 45% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --border: 36 45% 60%;
-    --input: 36 45% 60%;
-    --ring: 36 45% 30%;
-    --radius: 0rem;
+    --background: 30 10% 100%; /* Almost white, very soft background */
+    --foreground: 30 20% 15%; /* Muted dark brown for contrast */
+    --primary: 30 15% 85%; /* Very light beige for a modern, minimal primary color */
+    --primary-foreground: 30 10% 98%; /* Light foreground on primary */
+    --secondary: 30 15% 90%; /* Light cream for secondary elements */
+    --secondary-foreground: 30 20% 25%; /* Soft brown for secondary foreground */
+    --accent: 25 25% 90%; /* Soft, warm peach accent */
+    --accent-foreground: 30 15% 98%; /* Light foreground for accent */
+    --destructive: 0 50% 60%; /* Desaturated muted red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White for destructive foreground */
+    --muted: 30 10% 93%; /* Very light taupe for muted elements */
+    --muted-foreground: 30 15% 40%; /* Soft muted brown for text */
+    --card: 30 25% 90%; /* Soft, light beige for card backgrounds */
+    --card-foreground: 30 20% 25%; /* Warm brown text on cards */
+    --popover: 30 10% 98%; /* Almost white popovers */
+    --popover-foreground: 30 20% 20%; /* Darker muted text for popovers */
+    --border: 30 10% 85%; /* Light border color */
+    --input: 30 15% 90%; /* Soft beige for input fields */
+    --ring: 30 15% 75%; /* Light nude tone for focus rings */
+    --radius: 0.375rem; /* Rounded corners */
   }
 }
 
@@ -38,5 +38,21 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+  }
+
+  button {
+    @apply bg-primary text-primary-foreground rounded-md;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground;
   }
 }

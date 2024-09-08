@@ -5,6 +5,7 @@ import { Space_Mono } from 'next/font/google'
 import { cn } from '~/lib/utils'
 import '../styles/globals.css'
 import React, { type ReactNode } from 'react';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const fontHeading = DM_Sans({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ const fontBody = Space_Mono({
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body 
         className={cn(
@@ -34,5 +36,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         {children}
       </body>
     </html>
+    </ClerkProvider>
   )
 }

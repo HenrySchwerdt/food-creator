@@ -35,8 +35,8 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="flex flex-col min-h-[100dvh]" >
-      <NavBar />
+
+
       <div className="container mx-auto px-4 py-12 md:py-16 lg:py-5">
         <div className="flex flex-row gap-4">
           <div className="flex flex-col gap-4">
@@ -57,6 +57,6 @@ export default async function HomePage() {
         </div>
 
       </div>
-    </main>
+
   );
 }
