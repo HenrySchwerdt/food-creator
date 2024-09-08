@@ -16,8 +16,10 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <SidebarTrigger />
                 <UserButton />
             </div>
-          
+          <div className="p-2">
           {children}
+          </div>
+         
         </div>
       </main>
     </SidebarLayout>

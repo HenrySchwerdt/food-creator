@@ -20,18 +20,26 @@ export const updateUser = async (update: User): Promise<void> => {
     .where(eq(user.id, update.id));
 };
 
+export const insertUser = async (newUser: User): Promise<void> => {
+  await db
+    .insert(user)
+    .values({
+      id: newUser.id,
+      budget: newUser.budget,
+      favoriteMeals: newUser.favoriteMeals,
+      kitchenEquipment: newUser.kitchenEquipment,
+      dietaryPreferences: newUser.dietaryPreferences,
+      allergies: newUser.allergies,
+      unlikeIngredients: newUser.unlikeIngredients,
+      likedIngredients: newUser.likedIngredients,
+      people: newUser.people,
+    })
+    .execute();
+}
+
 export const getUser = async (id: string): Promise<User | undefined> => {
   const identifiedUser: User | undefined = await db.query.user.findFirst({
     where: (item, { eq }) => eq(item.id, id),
-  });
-  return identifiedUser;
-};
-
-export const getUserByEmail = async (
-  email: string,
-): Promise<User | undefined> => {
-  const identifiedUser: User | undefined = await db.query.user.findFirst({
-    where: (item, { eq }) => eq(item.email, email),
   });
   return identifiedUser;
 };

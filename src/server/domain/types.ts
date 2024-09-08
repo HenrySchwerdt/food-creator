@@ -55,9 +55,6 @@ export type WeekMenu = {
 export type User = {
   [key: string]: string | number | null | string[];
   id: string;
-  name: string;
-  email: string;
-  hash: string;
   budget: number | null;
   favoriteMeals: string[] | null;
   kitchenEquipment: string[] | null;

@@ -11,6 +11,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { type MenuDay, type ShoppingList } from "../domain/types";
+import { string } from "zod";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -47,10 +48,7 @@ export const menu = createTable("menu", {
 });
 
 export const user = createTable("user", {
-  id: uuid("id").primaryKey(),
-  name: varchar("name", { length: 256 }).notNull(),
-  email: varchar("email", { length: 256 }).notNull(),
-  hash: varchar("hash", { length: 256 }).notNull(),
+  id: varchar("id", { length: 256 }).primaryKey(),
   budget: real("budget"),
   favoriteMeals: json("favorite_meals").$type<string[]>(),
   kitchenEquipment: json("kitchen_equipment").$type<string[]>(),
