@@ -1,35 +1,22 @@
-// This is the root layout component for your Next.js app.
-// Learn more: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
-import { DM_Sans } from "next/font/google";
-import { Space_Mono } from "next/font/google";
-import { cn } from "~/lib/utils";
-import "../styles/globals.css";
-import React, { type ReactNode } from "react";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import '~/styles/globals.css'
 
-const fontHeading = DM_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-heading",
-});
-
-const fontBody = Space_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-body",
-  weight: "400",
-});
-
-export default function Layout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body
-          className={cn("antialiased", fontHeading.variable, fontBody.variable)}
-        >
-          {children}
+        <body>
+          <header>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
+          <main>{children}</main>
         </body>
       </html>
     </ClerkProvider>
-  );
+  )
 }

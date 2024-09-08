@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { env } from "./env";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher(["/api(.*)", "/dashboard(.*)"]);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 export default clerkMiddleware((auth, request) => {
   if (request.nextUrl.pathname == "/") {
@@ -27,3 +27,5 @@ export default clerkMiddleware((auth, request) => {
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+
+
