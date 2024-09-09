@@ -6,12 +6,13 @@ import { updateUser } from "~/server/repository/userRepository";
 const PUT = async (req: NextRequest) => {
     const {userId} = auth();
     if (!userId) {
+        console.error("Unauthorized");
         return new Response("Unauthorized", { status: 401 });
     }
     const body = await req.json() as User;
-    await updateUser({...body,
-        id: userId
-    });
+    body.id = userId;
+    console.log("PUT User: "+JSON.stringify(body));
+    await updateUser(body);
     return new Response("User updated", { status: 200 });
 }
 
