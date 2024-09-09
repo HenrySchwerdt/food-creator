@@ -22,6 +22,11 @@ export const updateUser = async (update: User): Promise<void> => {
     .execute();
 };
 
+export const getAllUsers = async (): Promise<User[]> => {
+  const allUsers: User[] = await db.query.user.findMany();
+  return allUsers;
+}
+
 export const insertUser = async (newUser: User): Promise<void> => {
   await db
     .insert(user)

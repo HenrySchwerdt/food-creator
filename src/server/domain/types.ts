@@ -12,10 +12,17 @@ export type Product = {
   dataOrigin: string | null;
 };
 
+export type Ingredient = {
+  [key: string]: string | null;
+  name: string,
+  quantity: string,
+  unit: string,
+};
+
 export type Menu = {
-  [key: string]: string | string[] | null;
+  [key: string]: string | string[] | null | Ingredient[];
   name: string;
-  ingredients: string[];
+  ingredients: Ingredient[];
   steps: string[];
 };
 
@@ -27,10 +34,10 @@ export type MenuDay = {
 
 export type ShoppingListItem = {
   [key: string]: number | string | null;
-  name: string;
-  price: number;
-  quantity: string;
-  origin: string;
+  name: string,
+  price: number,
+  quantity: string,
+  origin: string,
 };
 
 export type ShoppingList = {

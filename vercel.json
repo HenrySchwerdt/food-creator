@@ -1,3 +1,12 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "crons": [
+    {
+      "path": "/api/cron/scrape-products",
+      "schedule": "0 9 * * 1"
+    },
+    {
+      "path": "/api/cron/calculate-menus",
+      "schedule": "0 10 * * 1"
+    }
+  ]
 }
