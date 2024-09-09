@@ -46,7 +46,7 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
     };
 
     return (
-        <div className="shadow-md rounded-md p-5 bg-white max-w-xl">
+        <div className="shadow-md rounded-md p-5 bg-white">
             <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
             <p className="text-sm font-light text-gray-500 mt-2">{description}</p>
             <Separator className="my-4" />
