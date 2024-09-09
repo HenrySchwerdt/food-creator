@@ -15,7 +15,7 @@ export function Header() {
           <ShoppingCartIcon className="h-6 w-6" />
           <span className="ml-4">FoodCreatorAI</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6 justify-center items-baseline">
+        <nav className="ml-auto flex gap-4 sm:gap-6 justify-center items-center">
           <Link
             href="#"
             className="text-sm font-medium underline-offset-4 hover:underline"
