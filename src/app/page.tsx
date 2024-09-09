@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
+import { SignedIn } from "@clerk/nextjs";
 import { Benefits } from "~/components/feature-landing/benefits";
 import { Features } from "~/components/feature-landing/features";
 import { Footer } from "~/components/feature-landing/footer";
@@ -11,6 +11,7 @@ export default async function HomePage() {
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
+      <SignedIn>
       <Header />
       <main className="flex-1">
         <Hero />
@@ -20,6 +21,7 @@ export default async function HomePage() {
         <SignUp />
       </main>
       <Footer />
+      </SignedIn>
     </div>
   );
 }
