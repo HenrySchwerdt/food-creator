@@ -3,6 +3,10 @@ import { NextRequest } from "next/server";
 import { User } from "~/server/domain/types";
 import { updateUser } from "~/server/repository/userRepository";
 
+const GET = (req: NextRequest, { params: {id} }: { params: { id: string } }) => {
+    return new Response("Get for "+ id +" not implemented", { status: 200 });
+}
+
 const PUT = async (req: NextRequest, { params: {id} }: { params: { id: string } }) => {
     const {userId} = auth();
     if (!userId || userId !== id) {
@@ -16,4 +20,4 @@ const PUT = async (req: NextRequest, { params: {id} }: { params: { id: string } 
     return new Response("User updated", { status: 200 });
 }
 
-export { PUT };
+export { PUT, GET };
