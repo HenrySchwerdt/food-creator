@@ -3,9 +3,9 @@ import { NextRequest } from "next/server";
 import { User } from "~/server/domain/types";
 import { updateUser } from "~/server/repository/userRepository";
 
-const PUT = async (req: NextRequest) => {
+const PUT = async (req: NextRequest, { params: {id} }: { params: { id: string } }) => {
     const {userId} = auth();
-    if (!userId) {
+    if (!userId || userId !== id) {
         console.error("Unauthorized");
         return new Response("Unauthorized", { status: 401 });
     }
