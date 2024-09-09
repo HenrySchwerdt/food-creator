@@ -9,22 +9,23 @@ export default clerkMiddleware((auth, request) => {
         // This is to prevent lawers from accessing the home page
         const basicAuth = request.headers.get("authorization");
         const url = request.nextUrl;
-        if (basicAuth) {
-          const authValue = basicAuth.split(" ")[1];
-          const [username, password] = Buffer.from(authValue!, "base64")
+        if (!basicAuth) {
+            url.pathname = "/api/blockHome";
+            return NextResponse.rewrite(url);
+        }
+        const authValue = basicAuth.split(" ")[1];
+        const [username, password] = Buffer.from(authValue!, "base64")
             .toString()
             .split(":");
-          if (username === env.USERNAME && password === env.PASSWORD) {
-            return NextResponse.next();
-          }
+        if (username !== env.USERNAME || password !== env.PASSWORD) {
+            url.pathname = "/api/blockHome";
+            return NextResponse.rewrite(url);
         }
-        url.pathname = "/api/blockHome";
-        return NextResponse.rewrite(url);
-      }
+    }
     if (isProtectedRoute(request)) auth().protect();
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+    matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
 
