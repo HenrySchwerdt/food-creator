@@ -5,7 +5,7 @@ import { getAllProducts } from "~/server/repository/productRepository";
 
 export default async function DiscountsPage() {
     const products = await getAllProducts();
-    return <div className="overflow-x-auto"> 
+    return <div className="overflow-y-auto"> 
         <h1>Rabatte</h1>
         <Separator />
         <DiscountSearch products={products} />
