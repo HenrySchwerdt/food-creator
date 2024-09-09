@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node scrapeDiscounts.js && node createMenu.js"
+    "start": "node scrapeDiscounts.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "openai": "^4.57.0",
-    "zod": "^3.23.8",
     "puppeteer": "^23.2.1",
     "puppeteer-core": "^23.2.1"
   }

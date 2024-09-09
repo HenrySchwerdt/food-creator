@@ -30,11 +30,3 @@ jobs:
         env:
           REFRESH_PRODUCT_SECRET: ${{ secrets.REFRESH_PRODUCT_SECRET }}
           REFRESH_PRODUCT_URL: ${{ secrets.REFRESH_PRODUCT_URL }}
-      - name: Create Menu
-        run: node createMenu.js
-        working-directory: ./actions/
-        env:
-          WEEKLY_COST: ${{ secrets.WEEKLY_COST }}
-          REFRESH_MENU_URL: ${{ secrets.REFRESH_MENU_URL }}
-          REFRESH_MENU_SECRET: ${{ secrets.REFRESH_MENU_SECRET }}
-          OPENAI_API_KEY: ${{ secrets.OPEN_AI_SECRET_KEY }}
