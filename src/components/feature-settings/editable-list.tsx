@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
-import { Plus, Trash2, ChevronLeft, ChevronRight } from "lucide-react"; // Lucide Icons
+import { Plus, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Props {
     items: string[];

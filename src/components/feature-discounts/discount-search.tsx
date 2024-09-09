@@ -19,7 +19,7 @@ export function DiscountSearch({ products }: Props) {
                     placeholder="Suche nach Rabatten"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="max-w-[400px]"
+                    className="max-w-[400px] bg-white"
                 />
             </div>
             <div className="grid gap-4 pt-5 justify-center"
