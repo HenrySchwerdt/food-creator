@@ -66,7 +66,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader>
         <div className="line-clamp-1 flex-1 pr-2 font-medium">
-          FoodCreatorAI
+          Mealy
         </div>
       </SidebarHeader>
       <SidebarContent>

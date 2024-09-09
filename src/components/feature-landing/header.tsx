@@ -13,7 +13,7 @@ export function Header() {
           prefetch={false}
         >
           <ShoppingCartIcon className="h-6 w-6" />
-          <span className="ml-4">FoodCreatorAI</span>
+          <span className="ml-4">Mealy</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6 justify-center items-center">
           <Link
