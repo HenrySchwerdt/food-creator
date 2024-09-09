@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { Input } from "../ui/input";
+import { Separator } from "../ui/separator";
 
 interface Props {
     items: string[];
+    title: string;
     onUpdate: (items: string[]) => void;
 }
 
-export function EditableList({ items, onUpdate }: Props) {
+export function EditableList({ items, onUpdate, title }: Props) {
     const [newItem, setNewItem] = useState("");
     return <div className="shadow-md rounded-md p-5">
-        <div className="flex gap-2">
+        <h1>{title}</h1>
+        <Separator />
+        <div className="flex gap-2 pt-4">
             <Input placeholder="Neuer Eintrag" value={newItem} onChange={(e) => setNewItem(e.target.value)} />
             <button onClick={() => {
-                const found = items.find((item) => item.toLocaleLowerCase === newItem.toLocaleLowerCase);
-                if (!found) {
+                const found = items.filter((item) => item.toLocaleLowerCase() === newItem.toLocaleLowerCase());
+                if (found.length > 0) {
                     alert("Eintrag bereits vorhanden");
                     return;
                 }
