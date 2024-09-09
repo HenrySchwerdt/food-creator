@@ -11,13 +11,25 @@ interface Props {
 
 export function DiscountSearch({ products }: Props) {
     const [search, setSearch] = useState("");
-    return <div>
-        <Input placeholder="Suche nach Rabatten" value={search} onChange={(e) => setSearch(e.target.value)} className="max-w-[400px]" />
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-5">
-            {products
-                .filter((product) => product.name!.toLowerCase().includes(search.toLowerCase()))
-                .map((product) => <DiscountCard key={product.id} product={product} />)
-            }
+
+    return (
+        <div>
+            <Input
+                placeholder="Suche nach Rabatten"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="max-w-[400px]"
+            />
+            <div className="grid gap-4 pt-5"
+                 style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))" }}>
+                {products
+                    .filter((product) =>
+                        product.name!.toLowerCase().includes(search.toLowerCase())
+                    )
+                    .map((product) => (
+                        <DiscountCard key={product.id} product={product} />
+                    ))}
+            </div>
         </div>
-    </div>
+    );
 }
