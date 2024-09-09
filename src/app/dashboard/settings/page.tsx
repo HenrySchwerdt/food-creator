@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import { Settings } from "~/components/feature-settings/settings";
 import { Separator } from "~/components/ui/separator";
 import { getUser } from "~/server/repository/userRepository";
 
@@ -17,6 +18,7 @@ export default async function SettingsPage() {
     return <div> 
         <h1>Einstellungen</h1>
         <Separator />
+        <Settings />
 
     </div>;
 }
