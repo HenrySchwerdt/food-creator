@@ -2,10 +2,16 @@ import { auth } from "@clerk/nextjs/server";
 import { type NextRequest } from "next/server";
 import { type User } from "~/server/domain/types";
 import {
+    getAllUsers,
   getUser,
   insertUser,
   updateUser,
 } from "~/server/repository/userRepository";
+
+const GET = async (req: NextRequest) => {
+    const users = await getAllUsers();
+    return new Response(JSON.stringify(users), { status: 200 });
+}
 
 const POST = async (req: NextRequest) => {
   const { userId } = auth();
@@ -31,4 +37,4 @@ const POST = async (req: NextRequest) => {
   }
 };
 
-export { POST };
+export { POST, GET };
