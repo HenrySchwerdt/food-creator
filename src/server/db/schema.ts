@@ -2,6 +2,7 @@
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
 import {
+  boolean,
   integer,
   json,
   pgTableCreator,
@@ -56,5 +57,6 @@ export const user = createTable("user", {
   allergies: json("allergies").$type<string[]>(),
   unlikeIngredients: json("unlike_ingredients").$type<string[]>(),
   likedIngredients: json("liked_ingredients").$type<string[]>(),
+  includeDiscounts: boolean("include_discounts"),
   people: integer("people"),
 });

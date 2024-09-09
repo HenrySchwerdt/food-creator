@@ -53,7 +53,7 @@ export type WeekMenu = {
 };
 
 export type User = {
-  [key: string]: string | number | null | string[];
+  [key: string]: string | number | null | string[] | boolean;
   id: string;
   budget: number | null;
   favoriteMeals: string[] | null;
@@ -61,6 +61,7 @@ export type User = {
   dietaryPreferences: string[] | null;
   allergies: string[] | null;
   unlikeIngredients: string[] | null;
+  includeDiscounts: boolean | null;
   likedIngredients: string[] | null;
   people: number | null;
 };
