@@ -5,7 +5,7 @@ import { GeneralSettings } from "./general-settings";
 import { User } from "~/server/domain/types";
 
 interface Props {
-    user : User | null;
+    user : User | undefined;
 }
 
 export function Settings({user} : Props) {

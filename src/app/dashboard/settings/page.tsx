@@ -14,11 +14,11 @@ export default async function SettingsPage() {
             },
         };
     }
-    const user = getUser(userId);
+    const user = await getUser(userId);
     return <div> 
         <h1>Einstellungen</h1>
         <Separator />
-        <Settings />
+        <Settings user={user} />
 
     </div>;
 }
