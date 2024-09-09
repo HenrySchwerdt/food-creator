@@ -6,11 +6,12 @@ import { Plus, Trash2, ChevronLeft, ChevronRight } from "lucide-react"; // Lucid
 interface Props {
     items: string[];
     title: string;
+    description: string;
     onUpdate: (items: string[]) => void;
     itemLimit?: number;  // Configurable limit, default is 50
 }
 
-export function EditableList({ items, onUpdate, title, itemLimit = 50 }: Props) {
+export function EditableList({ items, onUpdate, title, description, itemLimit = 50 }: Props) {
     const [newItem, setNewItem] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -59,9 +60,8 @@ export function EditableList({ items, onUpdate, title, itemLimit = 50 }: Props) 
     return (
         <div className="shadow-md rounded-md p-5 bg-white">
             <h1 className="text-xl font-semibold text-gray-800">{title}</h1>
+            <p className="text-sm font-light text-gray-400 mt-4">{description}</p>
             <Separator className="my-4" />
-
-            {/* Search input */}
             <Input
                 placeholder="Suche..."
                 value={searchQuery}
