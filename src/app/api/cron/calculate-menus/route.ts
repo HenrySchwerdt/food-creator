@@ -161,30 +161,30 @@ function createPrompt(user: User): string {
 }
 
 const GET = async () => {
-  const openai = new OpenAI();
-  const products = await getAllProducts();
-  const users = await getAllUsers();
-  await removeAllWeekMenus();
-  for (const user of users) {
-    const response = await openai.beta.chat.completions.parse({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: createPrompt(user),
-        },
-        {
-          role: "user",
-          content: `Kreiere ein tolles Wochenmenu für diese Woche und achte darauf, dass der Einkaufszettel korrekt ist, damit alles auf einmal eingekauft werden kann und es keine Probleme gibt. 
-                ${user.includeDiscounts ? `Hier sind noch ein paar Rabat Aktionen die bei der Produkt- und Gerichtwahl helfen ${JSON.stringify(products)}` : ""}`,
-        },
-      ],
-      response_format: zodResponseFormat(Menu, "menu"),
-    });
-    const menu = response?.choices?.[0]?.message?.parsed ?? [];
-    const weekMenuModel = { ...menu, userId: user.id } as unknown as WeekMenu;
-    await insertMenu(weekMenuModel);
-  }
+  // const openai = new OpenAI();
+  // const products = await getAllProducts();
+  // const users = await getAllUsers();
+  // await removeAllWeekMenus();
+  // for (const user of users) {
+  //   const response = await openai.beta.chat.completions.parse({
+  //     model: "gpt-4o-mini",
+  //     messages: [
+  //       {
+  //         role: "system",
+  //         content: createPrompt(user),
+  //       },
+  //       {
+  //         role: "user",
+  //         content: `Kreiere ein tolles Wochenmenu für diese Woche und achte darauf, dass der Einkaufszettel korrekt ist, damit alles auf einmal eingekauft werden kann und es keine Probleme gibt. 
+  //               ${user.includeDiscounts ? `Hier sind noch ein paar Rabat Aktionen die bei der Produkt- und Gerichtwahl helfen ${JSON.stringify(products)}` : ""}`,
+  //       },
+  //     ],
+  //     response_format: zodResponseFormat(Menu, "menu"),
+  //   });
+  //   const menu = response?.choices?.[0]?.message?.parsed ?? [];
+  //   const weekMenuModel = { ...menu, userId: user.id } as unknown as WeekMenu;
+  //   await insertMenu(weekMenuModel);
+  // }
 
   return NextResponse.json({ ok: true });
 };
