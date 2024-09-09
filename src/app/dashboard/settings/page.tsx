@@ -5,20 +5,10 @@ import { getUser } from "~/server/repository/userRepository";
 
 
 export default async function SettingsPage() {
-    const {userId} = auth();
-    if (!userId) {
-        return {
-            redirect: {
-                destination: "/sign-in",
-                permanent: false,
-            },
-        };
-    }
-    const user = await getUser(userId);
-    return <div> 
+    const user = await getUser(auth().userId as string);
+    return <div className="overflow-y-auto">
         <h1>Einstellungen</h1>
         <Separator />
         <Settings user={user} />
-
     </div>;
 }
