@@ -22,7 +22,7 @@ export function DiscountSearch({ products }: Props) {
                     className="max-w-[400px]"
                 />
             </div>
-            <div className="grid gap-4 pt-5"
+            <div className="grid gap-4 pt-5 justify-center"
                 style={{ gridTemplateColumns: "repeat(auto-fill, minmax(24rem, 1fr))" }}>
                 {products
                     .filter((product) =>
