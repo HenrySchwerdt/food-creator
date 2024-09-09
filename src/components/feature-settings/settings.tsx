@@ -85,8 +85,12 @@ export function Settings({user} : Props) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(update),
-            }).then(() => {
+            }).then((response) => {
                 setChanged(false);
+                console.log(response.status)
+                return response.text();
+            }).then((data) => {
+                console.log(data);
             }).catch((error) => {
                 alert("Fehler beim Speichern der Daten");
             });

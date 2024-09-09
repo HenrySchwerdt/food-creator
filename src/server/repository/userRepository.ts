@@ -18,7 +18,8 @@ export const updateUser = async (update: User): Promise<void> => {
       includeDiscounts: update.includeDiscounts,
       people: update.people,
     })
-    .where(eq(user.id, update.id)).execute();
+    .where(eq(user.id, update.id))
+    .execute();
 };
 
 export const insertUser = async (newUser: User): Promise<void> => {
