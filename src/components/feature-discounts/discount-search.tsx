@@ -23,7 +23,7 @@ export function DiscountSearch({ products }: Props) {
                 />
             </div>
             <div className="grid gap-4 pt-5"
-                style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))" }}>
+                style={{ gridTemplateColumns: "repeat(auto-fill, minmax(24rem, 1fr))" }}>
                 {products
                     .filter((product) =>
                         product.name!.toLowerCase().includes(search.toLowerCase())
