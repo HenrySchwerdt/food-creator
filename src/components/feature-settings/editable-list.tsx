@@ -102,7 +102,7 @@ export function EditableList({ items, onUpdate, title, description, itemLimit = 
             </ul>
 
             {/* Pagination Controls */}
-            <div className="flex justify-between items-center mt-4">
+            {items.length > itemsPerPage && <div className="flex justify-between items-center mt-4">
                 <button
                     className={`p-2 ${currentPage === 1 ? "opacity-50" : "hover:bg-gray-200"} rounded`}
                     onClick={() => handlePageChange(currentPage - 1)}
@@ -122,7 +122,7 @@ export function EditableList({ items, onUpdate, title, description, itemLimit = 
                 >
                     <ChevronRight className="w-5 h-5" />
                 </button>
-            </div>
+            </div>}
         </div>
     );
 }
