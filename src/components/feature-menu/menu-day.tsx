@@ -30,7 +30,7 @@ export const MenuDayView = ({ day, menu }: Props) => {
                   <h5 className="mb-1 text-base font-medium">Zutaten:</h5>
                   <ul className="list-disc space-y-1 pl-4">
                     {menu.lunch.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
+                      <li key={index}>{ingredient.name}</li>
                     ))}
                   </ul>
                 </div>
@@ -57,7 +57,7 @@ export const MenuDayView = ({ day, menu }: Props) => {
                   <h5 className="mb-1 text-base font-medium">Zutaten:</h5>
                   <ul className="list-disc space-y-1 pl-4">
                     {menu.dinner.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
+                      <li key={index}>{ingredient.name}</li>
                     ))}
                   </ul>
                 </div>
