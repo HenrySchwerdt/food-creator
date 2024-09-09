@@ -61,7 +61,7 @@ export function Settings({user} : Props) {
             kitchenEquipment: kitchenEquiment,
             allergies
         };
-       if (!user) {
+      
         console.log("Perform POST")
         console.log(JSON.stringify(update));
             fetch("/api/settings", {
@@ -70,34 +70,16 @@ export function Settings({user} : Props) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(update),
-            }).then(() => {
-                setChanged(false);
+            }).then((response) => {
+                if (response.ok) {
+                    setChanged(false);
+                } else {
+                    alert("Fehler beim Speichern der Daten");
+                }
             }).catch((error) => {
                 alert("Fehler beim Speichern der Daten");
             })
-       } else {
-        console.log("Perform PUT")
-        console.log("User id: "+user?.id)
-        console.log(JSON.stringify(update));
-            fetch("/api/settings/"+user?.id, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(update),
-            }).then((response) => {
-                setChanged(false);
-                console.log(response.status)
-                return response.text();
-            }).then((data) => {
-                console.log(data);
-            }).catch((error) => {
-                alert("Fehler beim Speichern der Daten");
-            });
-       }
     }
-
-
     return (
         <div className="pt-4">
             <GeneralSettings title="Allgemeine Einstellungen" description="Hier können allgemeine Einstellungen vorgenommen werden zum Budget, den Personen im Haushalt und dem inkludieren der Rabatte." data={{includeDiscounts: includeDiscounts, people: people, budget: budget}} onChange={onGeneralSettingsChange} />
