@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+
 import { NextResponse } from "next/server";
 import puppeteer, { type Page } from "puppeteer";
 import {
