@@ -15,7 +15,7 @@ export function EditableList({ items, onUpdate, title, itemLimit = 50 }: Props) 
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
-    const itemsPerPage = 10; // Show 10 items per page
+    const itemsPerPage = 5; // Show 10 items per page
     const filteredItems = items.filter((item) =>
         item.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -63,15 +63,15 @@ export function EditableList({ items, onUpdate, title, itemLimit = 50 }: Props) 
 
             {/* Search input */}
             <Input
-                placeholder="Search for an item"
+                placeholder="Suche..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="mb-4"
+                className="mb-4 max-w-[400px]"
             />
 
             <div className="flex gap-2 pt-4">
                 <Input
-                    placeholder="Add new item"
+                    placeholder="Hinzufügen..."
                     value={newItem}
                     onChange={(e) => setNewItem(e.target.value)}
                     className="flex-grow"
@@ -111,7 +111,7 @@ export function EditableList({ items, onUpdate, title, itemLimit = 50 }: Props) 
                     <ChevronLeft className="w-5 h-5" />
                 </button>
                 <span className="text-gray-700">
-                    Page {currentPage} of {totalPages}
+                    Seite {currentPage} von {totalPages}
                 </span>
                 <button
                     className={`p-2 ${
