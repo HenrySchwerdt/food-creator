@@ -62,6 +62,8 @@ export function Settings({user} : Props) {
             allergies
         };
        if (!user) {
+        console.log("Perform POST")
+        console.log(JSON.stringify(update));
             fetch("/api/user", {
                 method: "POST",
                 headers: {
@@ -74,6 +76,9 @@ export function Settings({user} : Props) {
                 alert("Fehler beim Speichern der Daten");
             })
        } else {
+        console.log("Perform PUT")
+        console.log("User id: "+user?.id)
+        console.log(JSON.stringify(update));
             fetch("/api/user/"+user?.id, {
                 method: "PUT",
                 headers: {
