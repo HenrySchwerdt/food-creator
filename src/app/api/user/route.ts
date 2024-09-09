@@ -4,6 +4,10 @@ import { User } from "~/server/domain/types";
 import { getUser, insertUser } from "~/server/repository/userRepository";
 
 
+const GET = () => {
+    return new Response("GET not implemented", { status: 200 });
+}
+
 const POST = async (req: NextRequest) => {
     const {userId} = auth();
     if (!userId) {
@@ -24,4 +28,4 @@ const POST = async (req: NextRequest) => {
 };
 
 
-export { POST };
+export { POST, GET };
