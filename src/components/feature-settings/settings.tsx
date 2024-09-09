@@ -19,9 +19,9 @@ export function Settings() {
     }
 
     return (
-        <div>
+        <div className="pt-4">
             <GeneralSettings title="Allgemeine Einstellungen" description="Hier können allgemeine Einstellungen vorgenommen werden zum Budget, den Personen im Haushalt und dem inkludieren der Rabatte." data={{includeDiscounts: includeDiscounts, people: people, budget: budget}} onChange={onGeneralSettingsChange} />
-            <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-6">
+            <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-4">
                 <EditableList
                     items={favoriteIngredients}
                     onUpdate={setFavoriteIngredients}

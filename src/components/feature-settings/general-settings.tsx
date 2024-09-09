@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Separator } from "../ui/separator";
 import { Switch } from "../ui/switch";
 import { Slider } from "../ui/slider";
-import { cn } from "~/lib/utils";
 
 interface Data {
     includeDiscounts: boolean;
@@ -47,7 +46,7 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
     };
 
     return (
-        <div className="shadow-md rounded-md p-6 bg-white max-w-xl mx-auto">
+        <div className="shadow-md rounded-md p-5 bg-white max-w-xl">
             <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
             <p className="text-sm font-light text-gray-500 mt-2">{description}</p>
             <Separator className="my-4" />
@@ -64,7 +63,7 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
                         step={1}
                         className="w-full"
                     />
-                    <div className="text-gray-600 text-sm">{people} Personen</div>
+                    <div className="text-gray-600 text-sm">{people}</div>
                 </div>
             </div>
 
