@@ -25,7 +25,7 @@ export const updateUser = async (update: User): Promise<void> => {
 export const getAllUsers = async (): Promise<User[]> => {
   const allUsers: User[] = await db.query.user.findMany();
   return allUsers;
-}
+};
 
 export const insertUser = async (newUser: User): Promise<void> => {
   await db
@@ -43,7 +43,7 @@ export const insertUser = async (newUser: User): Promise<void> => {
       people: newUser.people,
     })
     .execute();
-}
+};
 
 export const getUser = async (id: string): Promise<User | undefined> => {
   const identifiedUser: User | undefined = await db.query.user.findFirst({

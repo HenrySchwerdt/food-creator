@@ -2,10 +2,7 @@
 
 import {
   Percent,
-  Frame,
   LifeBuoy,
-  Map,
-  PieChart,
   List,
   Utensils,
   Send,
@@ -14,7 +11,6 @@ import {
 
 import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
-import { NavUser } from "./nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -65,9 +61,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="line-clamp-1 flex-1 pr-2 font-medium">
-          Mealy
-        </div>
+        <div className="line-clamp-1 flex-1 pr-2 font-medium">Mealy</div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarItem>

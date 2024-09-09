@@ -14,9 +14,9 @@ export type Product = {
 
 export type Ingredient = {
   [key: string]: string | null;
-  name: string,
-  quantity: string,
-  unit: string,
+  name: string;
+  quantity: string;
+  unit: string;
 };
 
 export type Menu = {
@@ -34,10 +34,10 @@ export type MenuDay = {
 
 export type ShoppingListItem = {
   [key: string]: number | string | null;
-  name: string,
-  price: number,
-  quantity: string,
-  origin: string,
+  name: string;
+  price: number;
+  quantity: string;
+  origin: string;
 };
 
 export type ShoppingList = {

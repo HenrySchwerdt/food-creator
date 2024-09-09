@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { type JSX, type SVGProps } from "react";
 import { Separator } from "../ui/separator";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 export function Header() {
   return (
@@ -15,7 +21,7 @@ export function Header() {
           <ShoppingCartIcon className="h-6 w-6" />
           <span className="ml-4">Mealy</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6 justify-center items-center">
+        <nav className="ml-auto flex items-center justify-center gap-4 sm:gap-6">
           <Link
             href="#"
             className="text-sm font-medium underline-offset-4 hover:underline"
@@ -37,13 +43,13 @@ export function Header() {
             <SignUpButton />
           </SignedOut>
           <SignedIn>
-          <Link
-            href="/dashboard"
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            App
-          </Link>
+            <Link
+              href="/dashboard"
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              App
+            </Link>
           </SignedIn>
           <SignedIn>
             <UserButton />

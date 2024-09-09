@@ -8,19 +8,18 @@ import { Header } from "~/components/feature-landing/header";
 import { Hero } from "~/components/feature-landing/hero";
 import { SignUp } from "~/components/feature-landing/sign-up";
 export default async function HomePage() {
-
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <SignedIn>
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <Features />
-        <Benefits />
-        
-        <SignUp />
-      </main>
-      <Footer />
+        <Header />
+        <main className="flex-1">
+          <Hero />
+          <Features />
+          <Benefits />
+
+          <SignUp />
+        </main>
+        <Footer />
       </SignedIn>
     </div>
   );

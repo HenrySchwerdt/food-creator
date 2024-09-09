@@ -48,6 +48,11 @@ const config = {
       },
     ],
   },
-  ignorePatterns: ["createMenu.js", "scrapeDiscounts.js", "src/app/dashboard/menu/page.tsx", "src/components/ui/sidebar.tsx"],
+  ignorePatterns: [
+    "createMenu.js",
+    "scrapeDiscounts.js",
+    "src/app/dashboard/menu/page.tsx",
+    "src/components/ui/sidebar.tsx",
+  ],
 };
 module.exports = config;
