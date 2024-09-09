@@ -64,7 +64,7 @@ export function Settings({user} : Props) {
        if (!user) {
         console.log("Perform POST")
         console.log(JSON.stringify(update));
-            fetch("/api/user", {
+            fetch("/api/settings", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export function Settings({user} : Props) {
         console.log("Perform PUT")
         console.log("User id: "+user?.id)
         console.log(JSON.stringify(update));
-            fetch("/api/user/"+user?.id, {
+            fetch("/api/settings/"+user?.id, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
