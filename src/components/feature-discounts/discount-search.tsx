@@ -14,14 +14,16 @@ export function DiscountSearch({ products }: Props) {
 
     return (
         <div>
-            <Input
-                placeholder="Suche nach Rabatten"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="max-w-[400px]"
-            />
+            <div className="flex w-full flex-row-reverse pt-5">
+                <Input
+                    placeholder="Suche nach Rabatten"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="max-w-[400px]"
+                />
+            </div>
             <div className="grid gap-4 pt-5"
-                 style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))" }}>
+                style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))" }}>
                 {products
                     .filter((product) =>
                         product.name!.toLowerCase().includes(search.toLowerCase())
