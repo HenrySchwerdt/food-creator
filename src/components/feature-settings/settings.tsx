@@ -128,22 +128,15 @@ export function Settings({user} : Props) {
                     itemLimit={5}
                     description="Hier können Angaben zu den jeweiligen Allergien gemacht werden, damit Lebensmittel, die diese Stoffe beinhalten, nicht in das Wochenmenü gelangen."
                 />
-                 <EditableList
-                    items={allergies}
-                    onUpdate={onAllergiesChange}
-                    title="Allergien"
-                    itemLimit={5}
-                    description="Hier können Angaben zu den jeweiligen Allergien gemacht werden, damit Lebensmittel, die diese Stoffe beinhalten, nicht in das Wochenmenü gelangen."
-                />
                 <EditableList
                     items={kitchenEquiment}
                     itemLimit={10}
                     onUpdate={setKitchenEquipment}
                     title="Küchenausstattung"
                     description="Hier können Angaben zur Küchenausstattung gemacht werden, damit Rezepte, die spezielle Geräte benötigen, nicht in das Wochenmenü gelangen."
-                />
-                {changed && <button onClick={updateData} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Speichern</button>}
+                /> 
             </div>
+            {changed && <button onClick={updateData} className="bg-green-500 pt-4 hover:bg-green-700 w-full text-white font-bold py-2 px-4 rounded">Speichern</button>}
         </div>
     );
 }
