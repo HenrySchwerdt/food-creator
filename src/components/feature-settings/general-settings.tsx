@@ -25,8 +25,9 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
 
     const updateData = () => {
         const newData = { includeDiscounts, people, budget };
-        data !== newData && data !== newData;
-        onChange(newData);
+        if (data !== newData && data !== newData) {
+            onChange(newData);
+        }
     }
 
     const onIncludeDiscountsChange = (value: boolean) => {
