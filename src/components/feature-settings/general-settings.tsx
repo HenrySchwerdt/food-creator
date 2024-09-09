@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import { Separator } from "../ui/separator";
 import { Switch } from "../ui/switch";
 import { Slider } from "../ui/slider";
@@ -19,31 +17,14 @@ interface Props {
 }
 
 export function GeneralSettings({ title, description, data, onChange }: Props) {
-    const [includeDiscounts, setIncludeDiscounts] = useState(data.includeDiscounts);
-    const [people, setPeople] = useState(data.people);
-    const [budget, setBudget] = useState(data.budget);
 
-    const updateData = () => {
+    const updateData = (includeDiscounts: boolean, people: number, budget: number) => {
         const newData = { includeDiscounts, people, budget };
         if (JSON.stringify(data) !== JSON.stringify(newData)) {
             onChange(newData);
         }
     };
 
-    const onIncludeDiscountsChange = (value: boolean) => {
-        setIncludeDiscounts(value);
-        updateData();
-    };
-
-    const onPeopleChange = (value: number) => {
-        setPeople(value);
-        updateData();
-    };
-
-    const onBudgetChange = (value: number) => {
-        setBudget(value);
-        updateData();
-    };
 
     return (
         <div className="shadow-md rounded-md p-5 bg-white">
@@ -56,14 +37,14 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
                 <h2 className="text-lg font-medium text-gray-800 mb-2 sm:mb-0">Personen</h2>
                 <div className="flex gap-4 items-center w-full sm:w-2/3">
                     <Slider
-                        defaultValue={[people]}
-                        value={[people]}
-                        onValueChange={([value]) => onPeopleChange(value!)}
+                        defaultValue={[data.people]}
+                        value={[data.people]}
+                        onValueChange={([value]) => updateData(data.includeDiscounts, value!, data.budget)}
                         max={6}
                         step={1}
                         className="w-full"
                     />
-                    <div className="text-gray-600 text-sm">{people}</div>
+                    <div className="text-gray-600 text-sm">{data.people}</div>
                 </div>
             </div>
 
@@ -72,21 +53,21 @@ export function GeneralSettings({ title, description, data, onChange }: Props) {
                 <h2 className="text-lg font-medium text-gray-800 mb-2 sm:mb-0">Budget</h2>
                 <div className="flex gap-4 items-center w-full sm:w-2/3">
                     <Slider
-                        defaultValue={[budget]}
-                        value={[budget]}
-                        onValueChange={([value]) => onBudgetChange(value!)}
+                        defaultValue={[data.budget]}
+                        value={[data.budget]}
+                        onValueChange={([value]) => updateData(data.includeDiscounts, data.people, value!)}
                         max={200}
                         step={1}
                         className="w-full"
                     />
-                    <div className="text-gray-600 text-sm">€{budget}</div>
+                    <div className="text-gray-600 text-sm">€{data.budget}</div>
                 </div>
             </div>
 
             {/* Include Discounts Switch */}
             <div className="flex flex-col sm:flex-row justify-between items-center">
                 <h2 className="text-lg font-medium text-gray-800 mb-2 sm:mb-0">Rabatte einbeziehen</h2>
-                <Switch checked={includeDiscounts} onCheckedChange={onIncludeDiscountsChange} />
+                <Switch checked={data.includeDiscounts} onCheckedChange={(value) => updateData(value, data.people, data.budget)} />
             </div>
         </div>
     );
