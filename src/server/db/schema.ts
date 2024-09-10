@@ -8,7 +8,6 @@ import {
   pgTableCreator,
   real,
   serial,
-  uuid,
   varchar,
 } from "drizzle-orm/pg-core";
 import { type MenuDay, type ShoppingList } from "../domain/types";
@@ -36,7 +35,7 @@ export const products = createTable("products", {
 
 export const menu = createTable("menu", {
   id: serial("id").primaryKey(),
-  userId: uuid("user_id"),
+  userId: varchar("userId", { length: 256 }).notNull(),
   mon: json("mon").$type<MenuDay>().notNull(),
   tue: json("tue").$type<MenuDay>().notNull(),
   wen: json("wen").$type<MenuDay>().notNull(),
