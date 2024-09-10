@@ -15,6 +15,8 @@ export const env = createEnv({
     REFRESH_PRODUCT_SECRET: z.string(),
     USERNAME: z.string(),
     PASSWORD: z.string(),
+    GITHUB_TOKEN: z.string(),
+    GITHUB_URL: z.string().url(),
   },
 
   /**
@@ -37,6 +39,8 @@ export const env = createEnv({
     REFRESH_PRODUCT_SECRET: process.env.REFRESH_PRODUCT_SECRET,
     USERNAME: process.env.USERNAME,
     PASSWORD: process.env.PASSWORD,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+    GITHUB_URL: process.env.GITHUB_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

@@ -21,10 +21,17 @@ export default async function ShoppingListPage() {
     sat: "Samstag",
     sun: "Sonntag",
   };
+  
   const userMenu = await getUserMenu(userId);
+  if (!userMenu) {
+    return <div>Kein Menü gefunden</div>;
+  }
   return (
     <div className="overflow-y-auto">
-      <h1>Menu</h1>
+      <div className="flex justify-between items-center">
+        <h1>Menu</h1>
+       
+      </div>
       <Separator />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {dayKeys.map((dayKey) => (

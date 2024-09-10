@@ -3,6 +3,7 @@ import { useState } from "react";
 import { EditableList } from "./editable-list";
 import { GeneralSettings } from "./general-settings";
 import { type User } from "~/server/domain/types";
+import { Button } from "../ui/button";
 
 interface Props {
   user: User | undefined;
@@ -98,8 +99,14 @@ export function Settings({ user }: Props) {
         alert("Fehler beim Speichern der Daten");
       });
   };
+  const regenerateMenu = async () => {
+    await fetch("/api/menu", {
+      method: "POST",
+    });
+  }
   return (
     <div className="pt-4">
+      <Button onClick={regenerateMenu} className="px-4 py-2">Neu generieren</Button>
       <GeneralSettings
         title="Allgemeine Einstellungen"
         description="Hier können allgemeine Einstellungen vorgenommen werden zum Budget, den Personen im Haushalt und dem inkludieren der Rabatte."
