@@ -3,7 +3,7 @@ import { MenuDayView } from "./day"; // Importing the previously created compone
 import { type MenuDay, type WeekMenu } from "~/server/domain/types";
 
 interface Props {
-  weekMenu: WeekMenu
+  weekMenu: WeekMenu;
 }
 
 const daysMap: Record<number, string> = {
@@ -13,7 +13,7 @@ const daysMap: Record<number, string> = {
   3: "wen", // Wednesday
   4: "thu", // Thursday
   5: "fri", // Friday
-  6: "sat"  // Saturday
+  6: "sat", // Saturday
 };
 
 export const WeekMenuView = ({ weekMenu }: Props) => {
@@ -27,21 +27,28 @@ export const WeekMenuView = ({ weekMenu }: Props) => {
     thu: "Donnerstag",
     fri: "Freitag",
     sat: "Samstag",
-    sun: "Sonntag"
+    sun: "Sonntag",
   };
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Wochenmenü</h1>
-      
+      <h1 className="mb-8 text-center text-4xl font-bold text-gray-800">
+        Wochenmenü
+      </h1>
+
       <div className="grid gap-6">
         {Object.keys(weekMenu).map((dayKey) => (
-          <div key={dayKey} className={`transition duration-300 transform ${
-            dayKey === currentDayKey ? "bg-green-100 scale-105 border border-green-500" : "bg-white"
-          } rounded-lg shadow-lg`}>
-            <MenuDayView 
-              day={dayNames[dayKey]!} 
-              menu={weekMenu[dayKey]! as MenuDay} 
+          <div
+            key={dayKey}
+            className={`transform transition duration-300 ${
+              dayKey === currentDayKey
+                ? "scale-105 border border-green-500 bg-green-100"
+                : "bg-white"
+            } rounded-lg shadow-lg`}
+          >
+            <MenuDayView
+              day={dayNames[dayKey]!}
+              menu={weekMenu[dayKey]! as MenuDay}
             />
           </div>
         ))}

@@ -50,7 +50,7 @@ export type ShoppingList = {
 export type WeekMenu = {
   [key: string]: MenuDay | ShoppingList | null | number | string;
   id: number;
-  userId: string
+  userId: string;
   mon: MenuDay;
   tue: MenuDay;
   wen: MenuDay;

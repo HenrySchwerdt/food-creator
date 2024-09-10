@@ -7,7 +7,6 @@ import {
   updateUser,
 } from "~/server/repository/userRepository";
 
-
 const POST = async (req: NextRequest) => {
   const { userId } = auth();
   if (!userId) {

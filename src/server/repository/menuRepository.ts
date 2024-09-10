@@ -20,13 +20,14 @@ export const insertMenu = async (weekMenu: WeekMenu): Promise<void> => {
     .execute();
 };
 
-export const getUserMenu = async (userId: string): Promise<WeekMenu | undefined> => {
+export const getUserMenu = async (
+  userId: string,
+): Promise<WeekMenu | undefined> => {
   const identifiedMenu: WeekMenu | undefined = await db.query.menu.findFirst({
     where: (item, { eq }) => eq(item.userId, userId),
   });
   return identifiedMenu;
-  
-}
+};
 
 export const removeAllWeekMenus = async (): Promise<void> => {
   // eslint-disable-next-line drizzle/enforce-delete-with-where
