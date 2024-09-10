@@ -20,10 +20,11 @@ export type Ingredient = {
 };
 
 export type Menu = {
-  [key: string]: string | string[] | null | Ingredient[];
+  [key: string]: string | string[] | null | Ingredient[] | number;
   name: string;
   ingredients: Ingredient[];
   steps: string[];
+  caloriesPerPersion: number;
 };
 
 export type MenuDay = {
