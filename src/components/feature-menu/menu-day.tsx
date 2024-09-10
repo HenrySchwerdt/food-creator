@@ -14,8 +14,8 @@ interface Props {
 
 export const MenuDayView = ({ day, menu }: Props) => {
   return (
-    <Card className="rounded bg-stone-100">
-      <CardHeader className="bg-secondary">
+    <Card className="rounded">
+      <CardHeader className="bg-slate-300">
         <CardTitle className="text-xl">{day}</CardTitle>
       </CardHeader>
       <CardContent>

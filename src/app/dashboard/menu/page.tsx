@@ -1,6 +1,8 @@
 import { auth } from "@clerk/nextjs/server";
-import { WeekMenuView } from "~/components/feature-menu/week";
+import { MenuDayView } from "~/components/feature-menu/menu-day";
+
 import { Separator } from "~/components/ui/separator";
+import { MenuDay } from "~/server/domain/types";
 import { getUserMenu } from "~/server/repository/menuRepository";
 
 export default async function ShoppingListPage() {
@@ -9,13 +11,27 @@ export default async function ShoppingListPage() {
     console.error("Unauthorized");
     return new Response("Unauthorized", { status: 401 });
   }
+  const dayKeys = ["mon", "tue", "wen", "thu", "fri", "sat", "sun"];
+  const dayMap: Record<string, string> = {
+    mon: "Montag",
+    tue: "Dienstag",
+    wen: "Mittwoch",
+    thu: "Donnerstag",
+    fri: "Freitag",
+    sat: "Samstag",
+    sun: "Sonntag",
+  };
   const userMenu = await getUserMenu(userId);
   return (
     <div className="overflow-y-auto">
       <h1>Menu</h1>
       <Separator />
-      <div className="flex w-full flex-row items-center justify-center pt-4">
-        <WeekMenuView weekMenu={userMenu!} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        {dayKeys.map((dayKey) => (
+            <MenuDayView day={dayMap[dayKey]!} menu={userMenu![dayKey] as MenuDay} />
+          
+        ))}
+        
       </div>
     </div>
   );

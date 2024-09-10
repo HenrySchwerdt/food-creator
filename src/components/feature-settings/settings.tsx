@@ -80,8 +80,6 @@ export function Settings({ user }: Props) {
       allergies,
     };
 
-    console.log("Perform POST");
-    console.log(JSON.stringify(update));
     fetch("/api/settings", {
       method: "POST",
       headers: {
