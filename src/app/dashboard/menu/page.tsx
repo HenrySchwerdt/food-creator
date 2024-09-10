@@ -14,7 +14,7 @@ export default async function ShoppingListPage() {
         <h1>Einkaufsliste</h1>
         <Separator />
         <div className="flex flex-row justify-center w-full items-center pt-4">
-            <WeekMenuView weekMenu={userMenu!}>
+            <WeekMenuView weekMenu={userMenu!}/>
         </div>
     </div>
 }
